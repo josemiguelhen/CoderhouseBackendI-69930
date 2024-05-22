@@ -31,13 +31,24 @@ const getCartById = async (cid) => {
 
 const addProductToCart = async (cid, pid) => {
   await getCarts();
-  const product = {
-    product: pid,
-    quantity: 1,
-  };
+  const index = carro.findIndex((cart)=>cart.id === cid);
+  const cart = carro [index];
 
-  const index = carts.findIndex((cart) => cart.id === cid);
-  carts[index].products.push(product);
+  //Busco el producto dentro del carrito
+  const productIndex = cart.products.findIndex((product)=>product.propduct === pid);
+
+  if(productIndex !==-1){
+    //lo encontre entonces ++1
+    cart.products[productIndex].quantity+=1;
+
+  }else{
+    //no existe entonces lo agrego
+    const product = {
+      product:pid,
+      quantify:1,
+    };
+    cart.products.push(product);
+    }
 
 
   await fs.promises.writeFile(pathFile, JSON.stringify(carts));

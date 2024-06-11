@@ -1,5 +1,5 @@
 {
-  "name": "primera_preentrega_backend",
+  "name": "2dapreentrega_backend",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -15,8 +15,5 @@
     "express": "^4.19.2",
     "express-handlebars": "^7.1.2",
     "socket.io": "^4.7.5"
-  },
-  "devDependencies": {
-    "nodemon": "^3.1.0"
   }
 }
